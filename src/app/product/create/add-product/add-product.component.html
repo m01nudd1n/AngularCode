@@ -1,1 +1,40 @@
-<p>add-product works!</p>
+<br><br>
+<div class="container ">
+
+  <form  (ngSubmit)="addProduct(f)" #f="ngForm" class="mx-auto d-block" >
+    <legend>Add Product</legend>
+
+    <div class="form-group col-5">
+      <label for="">Product Name</label>
+      <input type="text"  class="form-control" id="" placeholder="Product Name"  [ngModel] name="ProductName"  class="form-control" >
+    </div>
+
+    <div class="form-group col-5">
+      <label for="">Price</label>
+      <input type="text" class="form-control" id="" placeholder="Price" [ngModel]  name="Price">
+    </div>
+
+    <div class="form-group col-5">
+      <label for="">Product Image</label>
+      <input type="file" class="form-control" id="" placeholder="Image" [ngModel]  name="ProductImage">
+    </div>
+
+
+
+<!-- Dropodown - Cateogry Name show, category Id -->
+    <div class="form-group col-5">
+      <label for="">Category</label>
+      <input type="text" class="form-control" id="" placeholder="Category" [ngModel]  name="CategoryName">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Add</button> &nbsp;&nbsp;&nbsp;
+    <button class='btn btn-outline-secondary'
+    (click)='onBack()'
+    style='width: 80px;'>
+<i class=' glyphicon glyphicon-menu-left '></i> Back
+</button>
+  </form>
+
+</div>
+<br><br>

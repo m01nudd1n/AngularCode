@@ -1,0 +1,32 @@
+
+<br><br>
+<section class="container-fluid">
+
+<div class="container mx-auto" >
+
+<br>
+
+  <div class="row" >
+    <div class="col-md-3"  *ngFor="let product of products">
+      <br>
+      <div class="card  mx-auto d-block" style="width: 15rem;" >
+          <a [routerLink]="['/products/' + product.Id]"> <img src={{product.ProductImage}} class="card-img-top img-fluid" style="height: 300px;" alt="..."  > </a>
+          <div class="card-body ">
+              <span >  <a [routerLink]="['/products/' + product.Id]"> {{product?.ProductName}} </a></span><br>
+        <span >Price {{product.Price | currency:'INR':'symbol'}}</span> <br>
+        <span class='mx-auto d-block'>Quantity <input type="number"   name="quantity" min="1" max="15" [(ngModel)]="quantity"></span> <br>
+        <button class="btn btn-primary btn-sm mx-auto d-block"  (click)="addToTheCart(product.Id,product.Image, product.ProductName,product.Price,quantity ,quantity*product.Price)" >Add to Cart</button>
+
+          </div>
+
+        </div>
+
+
+    </div>
+  </div>
+</div>
+<br>
+
+</section>
+
+

@@ -1,0 +1,21 @@
+<br><br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-3">
+            <div class="card" *ngFor='let cartItem of cartItems'>
+                <div class="card-horizontal">
+                    <div class="img-square-wrapper">
+                        <img class="" src={{cartItem.ProductImage}} alt="Card image cap" style="height: 300px;">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Name: {{cartItem.ProductName}}</h4>
+                        <p class="card-text">Price: {{cartItem.Price | currency:'INR':'symbol'}}</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

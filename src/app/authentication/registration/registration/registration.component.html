@@ -1,0 +1,44 @@
+
+  <img class='img-fluid' src="https://icon-library.net/images/registration-icon/registration-icon-6.jpg" alt="" class="mx-auto d-block" height=150 width=150 >
+  <form [formGroup]='registrationService.formModel' autocomplete="off" (submit)="onSubmit()">
+    <div class="form-group required" required>
+      <label >User Name</label>
+         <input type="text" class="form-control" formControlName='UserName'>
+         <label class="text-danger" *ngIf="registrationService.formModel.get('UserName').touched && registrationService.formModel.get('UserName').errors?.required">This Field Is Mandatory!</label>
+
+        </div>
+    <div class="form-group required">
+      <label >Email</label>
+      <label class="text-danger" *ngIf="registrationService.formModel.get('Email').touched && registrationService.formModel.get('Email').errors?.email">Email Invalid!</label>
+      <input type="text" class="form-control" formControlName='Email'>
+    </div>
+    <div class="form-group required">
+      <label >Full Name</label>
+      <input type="text" class="form-control" formControlName='FullName'>
+    </div>
+
+    <div formGroupName="Passwords">
+      <div class="form-group required">
+        <label >Password</label>
+        <input type="password" class="form-control" formControlName='Password'>
+        <label class="text-danger" *ngIf="registrationService.formModel.get('Passwords.Password').touched && registrationService.formModel.get('Passwords.Password').errors?.required">This Field Is Mandatory!</label>
+        <label class="text-danger" *ngIf="registrationService.formModel.get('Passwords.Password').touched && registrationService.formModel.get('Passwords.Password').errors?.minlength">minimun 4 character required!</label>
+      </div>
+      <div class="form-group required">
+        <label >Confirm Password</label>
+        <input type="password" class="form-control" formControlName='ConfirmPassword'>
+        <label class="text-danger" *ngIf="registrationService.formModel.get('Passwords.ConfirmPassword').touched && registrationService.formModel.get('Passwords.ConfirmPassword').errors?.required">This Field Is Mandatory!</label>
+        <label class="text-danger" *ngIf="registrationService.formModel.get('Passwords.ConfirmPassword').touched && registrationService.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">confirm password doesnt match!</label>
+
+      </div>
+    </div>
+
+    <div class='form-row'>
+      <div class="form-group col-md-8 offset-md-2">
+          <button type="submit" class="btn btn-info btn-lg btn-block" [disabled]="registrationService.formModel.invalid">
+            Sign Up
+          </button>
+      </div>
+    </div>
+
+  </form>

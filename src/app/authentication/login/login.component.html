@@ -1,0 +1,25 @@
+
+<img src="http://www.iconarchive.com/download/i94144/graphicloads/polygon/lock.ico" alt="" class="mx-auto d-block" height=150 width=150>
+<form class="mb-4" [formGroup]='loginService.loginFormModel' autocomplete="off" (submit)="onSubmit()">
+  <div class="form-group" required>
+    <label >User Name</label>
+       <input type="text" class="form-control" formControlName='UserName' required>
+
+      </div>
+
+
+
+    <div class="form-group ">
+      <label >Password</label>
+      <input type="password" class="form-control" formControlName='Password' required>
+            </div>
+
+  <div class='form-row'>
+    <div class="form-group col-md-8 offset-md-2">
+        <button type="submit" class="btn btn-lg  mx-auto d-block" style="width: 160px;"  [disabled]="loginService.loginFormModel.invalid" >
+          Login
+        </button>
+    </div>
+  </div>
+
+</form>
