@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
 onSubmit() {
   this.loginService.login().subscribe((res: any) => {
     localStorage.setItem('token', res.token);
-    this.router.navigateByUrl('/profile');
+    this.loginService.loginFormModel.reset();
+    this.router.navigateByUrl('/home');
   },
   err => {
     if (err.status == 400) {

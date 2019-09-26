@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class CartService {
 
   constructor(private http: HttpClient) { }
-  private accessPointUrl = 'http://localhost:5000/api/cart';
+  private accessPointUrl = 'http://localhost:5000/api/cart/';
 
   public addToCart(product) {
     console.log(product);
@@ -19,5 +19,9 @@ export class CartService {
 
     return this.http.get(this.accessPointUrl);
 
+  }
+
+  public removeFromCart(id: number) {
+return this.http.delete(this.accessPointUrl + id);
   }
 }

@@ -14,8 +14,19 @@ export class ProductListComponent implements OnInit {
 
    }
    products: Product;
-   productFilter;
+   productsArray: Product[] = [];
+   filteredProducts: Product[];
    productId: number;
+
+   _listFilter = '';
+   get listFilter(): string {
+     return this._listFilter;
+   }
+   set listFilter(value: string) {
+     this._listFilter = value;
+     this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.productsArray;
+   }
+
 
   ngOnInit() {
 
@@ -52,5 +63,11 @@ export class ProductListComponent implements OnInit {
     this.productService.addToCart(productId, product).subscribe(() => {
       this.ngOnInit();
 });
+  }
+
+  performFilter(filterBy: string): Product[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.productsArray.filter((product: Product) =>
+      product.ProductName.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 }

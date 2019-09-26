@@ -1,19 +1,67 @@
 <br><br>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mt-3">
-            <div class="card" *ngFor='let cartItem of cartItems'>
-                <div class="card-horizontal">
-                    <div class="img-square-wrapper">
-                        <img class="" src={{cartItem.ProductImage}} alt="Card image cap" style="height: 300px;">
+            <div class="card">
+              <div class="container" *ngIf='cartItems.length==0'>
+                <h2 class="mx-auto d-block">No items in Cart</h2>
+
+              </div>
+                <div class="card-horizontal" >
+                    <div class="card-body img-square-wrapper" *ngFor="let cartItem of cartItems">
+                      <table class="table table-borderless table-condensed">
+                        <tr>
+                            <th>
+                                <h1>{{cartItems.length}}</h1>
+                            </th>
+                          <th>
+                            Product Name
+                          </th>
+                          <th>
+                            Product Price
+                          </th>
+
+                          <th>
+                           Quantity
+                          </th>
+                          <th></th>
+                        </tr>
+                        <tr>
+                          <td>
+                              <img class="" src={{cartItem.ProductImage}} alt="Card image cap" style="height: 100px;">
+                          </td>
+                          <td>
+                              <h4 class="card-title mx-auto"  style="display: inline;">{{cartItem.ProductName}}</h4>
+                          </td>
+                          <td>
+                              <p class="card-text mx-auto" style="display: inline;">{{cartItem.Price | currency:'INR':'symbol'}}</p>
+
+                          </td>
+                          <td>
+                              <span class="mx-auto" style="display: inline;"><input type="number" class="" value="1"  name="quantity" min="1" max="15" [(ngModel)]="cartItem.Quantity"></span>
+                          </td>
+                          <td>
+
+                          </td>
+                          <td>
+                              <div class="col-md-4 mx-auto" style="display: inline;">
+                                  <button class="btn btn-outline-danger" (click)="deleteFromCart(cartItem.CartId)" >Remove</button>
+                                </div>
+                          </td>
+                        </tr>
+                      </table>
+
+
+
+
+
+
                     </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Name: {{cartItem.ProductName}}</h4>
-                        <p class="card-text">Price: {{cartItem.Price | currency:'INR':'symbol'}}</p>
-                    </div>
+
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="float-right">Last updated 3 mins ago</small>
                 </div>
             </div>
         </div>

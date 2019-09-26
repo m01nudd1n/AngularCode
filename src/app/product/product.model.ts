@@ -10,4 +10,5 @@ CategoryId: number;
 CategoryName: string;
 ProductImage: string;
 ProductDescription: string;
+Quantity: number;
 }

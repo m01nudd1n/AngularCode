@@ -7,15 +7,18 @@
 <br>
 
   <div class="row" >
-    <div class="col-md-3"  *ngFor="let product of products">
+    <div class="col-md-3"  *ngFor="let product of products | filter:productFilter">
       <br>
       <div class="card  mx-auto d-block" style="width: 15rem;" >
-          <a [routerLink]="['/products/' + product.Id]"> <img src={{product.ProductImage}} class="card-img-top img-fluid" style="height: 300px;" alt="..."  > </a>
+          <a [routerLink]="['/products/' + product.Id]"> <img src={{product.ProductImage}} class="img-square-wrapper img-fluid mx-auto d-block" style="height: 200px;" alt="..."  > </a>
           <div class="card-body ">
               <span >  <a [routerLink]="['/products/' + product.Id]"> {{product?.ProductName}} </a></span><br>
-        <span >Price {{product.Price | currency:'INR':'symbol'}}</span> <br>
-        <span class='mx-auto d-block'>Quantity <input type="number"   name="quantity" min="1" max="15" [(ngModel)]="quantity"></span> <br>
-        <button class="btn btn-primary btn-sm mx-auto d-block"  (click)="addToTheCart(product.Id,product.Image, product.ProductName,product.Price,quantity ,quantity*product.Price)" >Add to Cart</button>
+
+              <span >Price {{product.Price | currency:'INR':'symbol'}}</span> <br>
+
+              <span class='mx-auto d-block'>Quantity <input type="number" value="1"  name="quantity" min="1" max="15" [(ngModel)]="product.Quantity" value={{product.Quantity}}></span> <br>
+
+              <button class="btn btn-primary btn-sm mx-auto d-block"  (click)="addToTheCart(product.Id,product.ProductImage, product.ProductName,product.Price,product.Quantity ,product.Quantity*product.Price)" >Add to Cart</button>
 
           </div>
 

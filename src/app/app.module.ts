@@ -20,11 +20,12 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './authguard/auth.interceptor';
 import { LoginService } from './shared/login.service';
+import { DataSharingService } from './shared/datasharing.service';
 
 
 @NgModule({
@@ -51,10 +52,11 @@ import { LoginService } from './shared/login.service';
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule
 
   ],
-  providers: [ProductService, HeaderService, HomeService, RegistrationService, {
+  providers: [ProductService, DataSharingService, HeaderService, HomeService, RegistrationService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
