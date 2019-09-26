@@ -16,7 +16,7 @@
                     </form>
               </li>
               <li class="nav-item">
-                  <a *ngIf='token' class="nav-link js-scroll-trigger" href="#services"><strong>Welcome! </strong></a>
+                  <a *ngIf='token' class="nav-link js-scroll-trigger" routerLink='/profile'><strong>Welcome! {{userProfile.FullName}}</strong></a>
 
               </li>
               <li class="nav-item">

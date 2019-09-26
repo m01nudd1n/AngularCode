@@ -22,7 +22,9 @@ onSubmit() {
   this.loginService.login().subscribe((res: any) => {
     localStorage.setItem('token', res.token);
     this.loginService.loginFormModel.reset();
-    this.router.navigateByUrl('/home');
+
+
+    location.reload();
   },
   err => {
     if (err.status == 400) {

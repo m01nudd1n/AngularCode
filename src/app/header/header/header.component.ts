@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
 
    }
 token;
-
+userProfile;
 
 ngOnInit() {
     this._productService.getCart().subscribe((res: any) => {
@@ -58,7 +58,10 @@ ngOnInit() {
 
     });
     if (this.token !== null) {
-      this.userService.getUserProfile().subscribe();
+      this.userService.getUserProfile().subscribe((res:any) => {
+        this.userProfile = res;
+
+      });
     }
 
   }
@@ -71,9 +74,12 @@ rElOaD() {
     query = this._listFilter;
     this.dataShare.notifySearch(this._listFilter);
     console.log(this._listFilter);
+    this.router.navigate(['/home']);
   }
   logOut() {
     localStorage.removeItem('token');
-    this.router.navigate(['/home']);
+    location.reload();
+
+    this.ngOnInit();
   }
 }

@@ -4,9 +4,12 @@ import { Cart } from '../product/cart/cart.model';
 
 @Injectable()
 export class DataSharingService {
+
     public isItemAdded: Subject<any> = new Subject<any>();
     public isItemRemoved: Subject<any> = new Subject<any>();
     public search: Subject<any> = new Subject<any>();
+    public logout: Subject<any> = new Subject <any>();
+
     notifyIfItemAdded(actionName: any) {
       debugger
       this.isItemAdded.next(actionName);
@@ -20,6 +23,10 @@ export class DataSharingService {
 notifySearch(actionName: any){
   debugger
   this.search.next(actionName);
+}
+
+notifyLogout(actionName: any){
+this.logout.next(actionName);
 }
 
 
