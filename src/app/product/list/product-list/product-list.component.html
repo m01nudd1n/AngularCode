@@ -11,7 +11,7 @@
     <div class="col-md-3 "  *ngFor="let product of products">
       <br>
       <div class="card" style="width: 15rem;" >
-          <a [routerLink]="['/products/' + product.Id]"> <img src={{product.ProductImage}} class="card-img-top img-fluid" style="height: 300px;" alt="..."  > </a>
+          <a [routerLink]="['/products/' + product.Id]"> <img src={{product.ProductImage}} class="img-square-wrapper img-fluid mx-auto d-block" style="height: 200px;" alt="..."  > </a>
           <div class="card-body mx-auto">
               <span> <a [routerLink]="['/products/' + product.Id]"> {{product?.ProductName}} </a></span><br>
         <span class="">Price {{product.Price | currency:'INR':'symbol'}}</span> <br>

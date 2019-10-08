@@ -1,14 +1,14 @@
 export class Product {
-  Id: number;
+Id                : number;
 ProductSubcategory: string;
-ProductName: string;
-ProductColor: string;
-ProductBrand: string;
-Price: number;
-ProductGender: string;
-CategoryId: number;
-CategoryName: string;
-ProductImage: string;
+ProductName       : string;
+ProductColor      : string;
+ProductBrand      : string;
+Price             : number;
+ProductGender     : string;
+CategoryId        : number;
+CategoryName      : string;
+ProductImage      : string;
 ProductDescription: string;
-Quantity: number;
+Quantity          : number;
 }

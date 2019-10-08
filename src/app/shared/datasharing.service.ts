@@ -9,6 +9,7 @@ export class DataSharingService {
     public isItemRemoved: Subject<any> = new Subject<any>();
     public search: Subject<any> = new Subject<any>();
     public logout: Subject<any> = new Subject <any>();
+    public UserId:  Subject<any> = new Subject <any>();
 
     notifyIfItemAdded(actionName: any) {
       debugger
@@ -29,6 +30,9 @@ notifyLogout(actionName: any){
 this.logout.next(actionName);
 }
 
+getId(actionName: any) {
+this.UserId.next(actionName);
+}
 
 //   public isItemAdded = new Subject<any>();
 

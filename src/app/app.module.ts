@@ -1,3 +1,4 @@
+import { OrderService } from './shared/order.service';
 import { RegistrationService } from './shared/registration.service';
 import { HomeService } from './shared/home.service';
 import { CartComponent } from './product/cart/cart.component';
@@ -26,6 +27,9 @@ import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './authguard/auth.interceptor';
 import { LoginService } from './shared/login.service';
 import { DataSharingService } from './shared/datasharing.service';
+import { OrderComponent } from './order/order.component';
+import { AddressComponent } from './address/address.component';
+import { AddressService } from './shared/address.service';
 
 
 @NgModule({
@@ -38,7 +42,9 @@ import { DataSharingService } from './shared/datasharing.service';
     AuthenticationComponent,
     RegistrationComponent,
     CartComponent,
-    HomeComponent
+    HomeComponent,
+    OrderComponent,
+    AddressComponent
 
 
   ],
@@ -56,7 +62,14 @@ import { DataSharingService } from './shared/datasharing.service';
     Ng2SearchPipeModule
 
   ],
-  providers: [ProductService, DataSharingService, HeaderService, HomeService, RegistrationService, {
+  providers: [
+              ProductService,
+              DataSharingService,
+              AddressService,
+              HeaderService,
+              OrderService,
+              HomeService,
+              RegistrationService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

@@ -24,4 +24,8 @@ export class CartService {
   public removeFromCart(id: number) {
 return this.http.delete(this.accessPointUrl + id);
   }
+
+  public addToOrderDetails(id: number) {
+    return this.http.post(this.accessPointUrl, id);
+  }
 }

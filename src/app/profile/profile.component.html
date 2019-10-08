@@ -1,12 +1,135 @@
 
 <br><br>
+<!-- <div class="container">
+    <div class="card m-5" style="width: 18rem" *ngIf="userDetails">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>User Name: </strong>{{userDetails.UserName}}</li>
+            <li class="list-group-item"><strong>Full Name: </strong>{{userDetails.FullName}}</li>
+            <li class="list-group-item"><strong>Email: </strong>{{userDetails.Email}}</li>
+            <li class="list-group-item"><strong>Email: </strong>{{userDetails.Id}}</li>
+        </ul>
+        </div>
 
-  <div class="card m-5" style="width: 18rem" *ngIf="userDetails">
-  <ul class="list-group">
-      <li class="list-group-item"><strong>User Name: </strong>{{userDetails.UserName}}</li>
-      <li class="list-group-item"><strong>Full Name: </strong>{{userDetails.FullName}}</li>
-      <li class="list-group-item"><strong>Email: </strong>{{userDetails.Email}}</li>
-  </ul>
+
+</div> -->
+
+<div class="container">
+  <div class="row my-2">
+      <div class="col-lg-8 order-lg-2">
+          <ul class="nav nav-tabs">
+              <li class="nav-item">
+                  <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+              </li>
+              <li class="nav-item">
+                  <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Address</a>
+              </li>
+              <li class="nav-item">
+                  <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Orders</a>
+              </li>
+          </ul>
+          <div class="tab-content py-4">
+              <div class="tab-pane active" id="profile">
+                  <h5 class="mb-3">User Profile</h5>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <h6>Name</h6>
+                          <p>
+                              {{fullName}}
+                          </p>
+                          <h6>Email</h6>
+                          <p>
+                             {{email}}
+                          </p>
+                          <h6>User Name</h6>
+                          <p>
+                             {{userName}}
+                          </p>
+                      </div>
+                      <!-- <div class="col-md-6">
+                          <h6>Recent badges</h6>
+                          <a href="#" class="badge badge-dark badge-pill">html5</a>
+                          <a href="#" class="badge badge-dark badge-pill">react</a>
+                          <a href="#" class="badge badge-dark badge-pill">codeply</a>
+                          <a href="#" class="badge badge-dark badge-pill">angularjs</a>
+                          <a href="#" class="badge badge-dark badge-pill">css3</a>
+                          <a href="#" class="badge badge-dark badge-pill">jquery</a>
+                          <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
+                          <a href="#" class="badge badge-dark badge-pill">responsive-design</a>
+                          <hr>
+                          <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
+                          <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
+                          <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                      </div> -->
+                      <div class="col-md-12">
+                          <!-- <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
+                          <table class="table table-sm table-hover table-striped">
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                          <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table> -->
+                      </div>
+                  </div>
+                  <!--/row-->
+              </div>
+              <div class="tab-pane" id="messages">
+                <div class="summary">
+                  <h6>Street Address:</h6>
+                  <div class="summary-item"><span class="price"> {{streetAddress}}</span></div>
+                  <div class="summary-item"><span class="price">{{city}}</span></div>
+                  <div class="summary-item"><span class="price">{{pinCode}}</span></div>
+                  <div class="summary-item"><span class="price">{{state}}</span></div>
+                  <div class="summary-item"><span class="price">Address Type: {{addressType}}</span></div>
+
+                  <button type="button"  class="btn btn-primary btn-lg btn-block">Add Address</button>
+                </div>
+
+              </div>
+              <div class="tab-pane" id="edit">
+                <div class="summary">
+                  <h6 *ngFor='let order of orderDetail'>  Orders So far:</h6>
+                  <div class="summary-item"><span class="price"> <strong>Order Id: </strong> {{orderId}}</span></div>
+                  <div class="summary-item"><span class="price"><strong>Order Date: </strong> {{orderDate}}</span></div>
+                  <div class="summary-item"><span class="price"><strong>Customer Id: </strong> {{custId}}</span></div>
+                  <div class="summary-item"><span class="price"><strong>Amount: </strong> {{TotalAmount}}</span></div>
+                  <div class="summary-item"><span class="price"><strong>Address Type: </strong> {{addressType}}</span></div>
+
+
+                </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-4 order-lg-1 text-center">
+          <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+          <h6 class="mt-2">Upload a different photo</h6>
+          <label class="custom-file">
+              <input type="file" id="file" class="custom-file-input">
+              <span class="custom-file-control">Choose file</span>
+          </label>
+      </div>
   </div>
-
+</div>
 

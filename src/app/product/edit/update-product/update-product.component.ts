@@ -14,14 +14,35 @@ export class UpdateProductComponent implements OnInit {
 
   constructor(private productService: ProductService, private router: Router, private activatedRoute: ActivatedRoute) { }
   productId: number;
-  product: any;
+  product: Product;
+
+ProductSubcategory: string;
+ProductName       : string;
+ProductColor      : string;
+ProductBrand      : string;
+Price             : number;
+ProductGender     : string;
+CategoryId        : number;
+CategoryName      : string;
+ProductImage      : string;
+ProductDescription: string;
+Quantity          : number;
+
   ngOnInit() {
+    this.product = new Product();
+
     this.productId = +this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.productId);
 
-    this.productService.getProduct(this.productId).subscribe((response: any) => {
-      this.product = response;
+    this.productService.getProduct(this.productId).subscribe((response: Product) => {
+      if (response) {
+        this.product = response;
+        this.Quantity = this.product.Quantity;
+        this.ProductSubcategory = this.product.ProductSubcategory;
+      }
+
       console.log(response);
+      console.log( this.ProductSubcategory);
         });
   }
   updateProduct(nf: NgForm) {

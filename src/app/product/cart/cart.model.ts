@@ -6,4 +6,6 @@ export class Cart {
   Amount: number;
   Price: number;
 ProductImage: string;
+CustomerId: string;
+DateofOrder: string;
 }

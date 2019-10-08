@@ -1,9 +1,10 @@
+import { Product } from './../../product.model';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/shared/cart.service';
 import { ProductService } from './../../product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from '../../product.model';
+
 import { Cart } from '../../cart/cart.model';
 
 
@@ -20,7 +21,7 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
   productId: number;
 quatity: number;
-
+Quantity: number;
 ngOnInit() {
   this.productId = +this.route.snapshot.paramMap.get('id');
   this.pageTitle += `: ${this.productId}`;

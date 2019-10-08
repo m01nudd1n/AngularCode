@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/product/product.service';
 import { Cart } from 'src/app/product/cart/cart.model';
+import { Usermodel } from 'src/app/profile/usermodel';
 
 
 @Component({
@@ -18,6 +19,8 @@ import { Cart } from 'src/app/product/cart/cart.model';
 export class HeaderComponent implements OnInit {
   subscription: Subscription[];
   cart: number;
+  userProfile: Usermodel;
+  fullName: string;
   _listFilter = '';
   // tslint:disable-next-line: max-line-length
   // tslint:disable-next-line: variable-name
@@ -28,47 +31,47 @@ export class HeaderComponent implements OnInit {
     this.subscription = [];
     this.subscription.push(
       this.dataShare.isItemAdded.subscribe((action: number) => {
-          this.cart = action;
-          console.log("Header Constructor"+this.cart);
-          })
-  );
-
-  this.subscription.push(
-    this.dataShare.isItemRemoved.subscribe((action: number) => {
         this.cart = action;
-        console.log("Header Constructor"+this.cart);
-        })
-);
+        console.log("Header Constructor" + this.cart);
+      })
+    );
+
+    this.subscription.push(
+      this.dataShare.isItemRemoved.subscribe((action: number) => {
+        this.cart = action;
+        console.log("Header Constructor" + this.cart);
+      })
+    );
 
 
 
-  // this.subscription = this.dataShare.getData()
-  //                   .subscribe((res =>{
-  //                     this.cart.push(res);
-  //                     console.log('The Cart '+this.cart.push(res));
-  //                   }));
+    // this.subscription = this.dataShare.getData()
+    //                   .subscribe((res =>{
+    //                     this.cart.push(res);
+    //                     console.log('The Cart '+this.cart.push(res));
+    //                   }));
 
-   }
-token;
-userProfile;
+  }
+  token;
 
-ngOnInit() {
+
+  ngOnInit() {
     this._productService.getCart().subscribe((res: any) => {
-   //   this.cart = res;
+      //   this.cart = res;
 
     });
     if (this.token !== null) {
-      this.userService.getUserProfile().subscribe((res:any) => {
+      this.userService.getUserProfile().subscribe((res: Usermodel) => {
         this.userProfile = res;
-
+        this.fullName = this.userProfile.FullName;
       });
     }
 
   }
 
-rElOaD() {
-  location.reload();
-}
+  rElOaD() {
+    location.reload();
+  }
 
   onSearch(query) {
     query = this._listFilter;

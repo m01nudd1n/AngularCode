@@ -7,6 +7,8 @@ import { AuthGuard } from './authguard/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AddressComponent } from './address/address.component';
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -47,6 +49,14 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'address',
+    component: AddressComponent
+  },
+  {
+    path: 'order',
+    component: OrderComponent
   },
   {
     path: '**',

@@ -1,0 +1,72 @@
+<br><br><br>
+<main class="page">
+	 	<section class="shopping-cart dark" >
+	 		<div class="container">
+		        <div class="block-heading">
+		          <h2>Order Summary</h2>
+
+		        </div>
+		        <div class="content">
+	 				<div class="row">
+	 					<div class="col-md-12 col-lg-8">
+	 						<div class="items">
+				 				<div class="product" *ngFor="let cart of carts">
+				 					<div class="row">
+					 					<div class="col-md-3">
+					 						<img class="img-fluid mx-auto d-block image" [src]='cart.ProductImage'>
+					 					</div>
+					 					<div class="col-md-8">
+					 						<div class="info">
+						 						<div class="row">
+							 						<div class="col-md-5 product-name">
+							 							<div class="product-name">
+								 							<a>Name: {{cart.ProductName}}</a>
+								 							<div class="product-info">
+									 							<div>Display: <span class="value">5 inch</span></div>
+									 							<div>RAM: <span class="value">4GB</span></div>
+									 							<div>Memory: <span class="value">32GB</span></div>
+									 						</div>
+									 					</div>
+							 						</div>
+							 						<div class="col-md-4 quantity">
+							 							<label for="quantity">Quantity:</label>
+							 							<input id="quantity" readonly type="number" value ="1" class="form-control quantity-input">
+							 						</div>
+							 						<div class="col-md-3 price">
+							 							<span>{{cart.Price | currency:'INR':'symbol'}}</span>
+							 						</div>
+							 					</div>
+							 				</div>
+					 					</div>
+					 				</div>
+				 				</div>
+
+				 								 			</div>
+			 			</div>
+			 			<div class="col-md-12 col-lg-4">
+			 				<div class="summary">
+			 					<h3>Amount</h3>
+			 					<div class="summary-item"><span class="text">Subtotal</span><span class="price">{{calculateAmount | currency:'INR':'symbol'}}</span></div>
+			 					<div class="summary-item"><span class="text">Discount</span><span class="price">₹0</span></div>
+			 					<div class="summary-item"><span class="text">Shipping</span><span class="price">₹0</span></div>
+			 					<div class="summary-item" *ngFor="let cart of carts"><span class="text">Total: </span><span class="price">{{calculateAmount | currency:'INR':'symbol'}}</span></div>
+                  <br>
+
+               </div>
+               <div class="summary">
+                <h3 >Deliver To</h3>
+                <div class="summary-item"><span class="price">{{fullName}}</span></div>
+                <div class="summary-item"><span class="price">{{email}}</span></div>
+                <div class="summary-item"><span class="price">{{streetAddress}}</span></div>
+                <div class="summary-item"><span class="price">{{city}}</span></div>
+                <div class="summary-item"><span class="price">{{pinCode}}</span></div>
+                <div class="summary-item"><span class="price">{{state}}</span></div>
+                <button type="button" (click)="placeTheOrder()"  class="btn btn-primary btn-lg btn-block">Place Order</button>
+              </div>
+			 			</div>
+		 			</div>
+		 		</div>
+	 		</div>
+		</section>
+	</main>
+<br><br>

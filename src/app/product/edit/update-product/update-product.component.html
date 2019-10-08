@@ -1,26 +1,47 @@
 
-<div class="container">
+<br> <br> <br>
+<div class="container" style="background: linear-gradient(to right, #0062E6 , #33AEFF );">
 
   <form  (ngSubmit)="updateProduct(f)" #f="ngForm" >
     <legend>Update Product</legend>
 
-    <div class="form-group">
+    <div class="form-group" style="color: black">
       <label for="">Product Id</label>
       <input type="text"  class="form-control" id="" placeholder="Id"  [(ngModel)]="productId" name="Id"  class="form-control" >
     </div>
 
     <div class="form-group">
       <label for="">Product Name</label>
-      <input type="text"  class="form-control" id="" placeholder="Name"  [ngModel] name="Name"  class="form-control" >
+      <input type="text"  class="form-control" id="" placeholder="Name"  [(ngModel)]="ProductName" name="Name"  class="form-control" >
     </div>
 
     <div class="form-group">
       <label for="">Price</label>
-      <input type="text" class="form-control" id="" placeholder="Price" [ngModel]  name="Price">
+      <input type="text" class="form-control" id="" placeholder="Price" [(ngModel)]="Price"  name="Price">
     </div>
 
+    <div class="form-group">
+      <label for="">Category ID</label>
+      <input type="text" class="form-control" id="" placeholder="Category ID" [(ngModel)]="CategoryId"  name="CategoryId">
+    </div>
+
+    <div class="form-group">
+      <label for="">Category Name</label>
+      <input type="text" class="form-control" id="" placeholder="Category Name" [(ngModel)]="CategoryName"  name="CategoryName">
+    </div>
+
+    <div class="form-group">
+      <label for="">Product Image</label>
+      <input type="text" class="form-control" id="" placeholder="Product Image" [(ngModel)]="ProductImage" name="ProductImage">
+    </div>
+
+    <div class="form-group">
+      <label for="">Product Description</label>
+      <input type="text" class="form-control" id="" placeholder="Product Description" [(ngModel)]="ProductDescription" name="ProductDescription">
+    </div>
 
     <button type="submit" class="btn btn-primary">update</button>
   </form>
 
 </div>
+<br> <br> <br>

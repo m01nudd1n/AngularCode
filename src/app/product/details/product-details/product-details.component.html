@@ -31,7 +31,7 @@
         <div class='row'>
           <div class='col-md-4'>Quantity :</div>
           <div class='col-md-8'>
-            <span class='mx-auto d-block'>Quantity <input type="number"   name="quantity" min="1" max="15" [(ngModel)]="quantity"></span> <br>
+            <span class='mx-auto d-block'>Quantity <input type="number"   name="quantity" min="1" max="15" [(ngModel)]="Quantity"></span> <br>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
 
              [title]='product.ProductName' src={{product.ProductImage}}>
 
-             <button class="btn btn-primary btn-sm d-block"  (click)="addToTheCart(product.Id,product.ProductImage, product.ProductName,product.Price,quantity ,quantity*product.Price)" >Add to Cart</button>
+             <button class="btn btn-primary btn-sm d-block"  (click)="addToTheCart(product.Id,product.ProductImage, product.ProductName,product.Price,Quantity ,Quantity*product.Price)" >Add to Cart</button>
 
       </div>
      </div>

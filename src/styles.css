@@ -1,8 +1,9 @@
 @import '~ngx-toastr/toastr';
 
 body{
-  background:#007bff;
-  background: linear-gradient(to right, #0062E6 , #33AEFF );
+  background: #fff;
+  /* background:#007bff;
+  background: linear-gradient(to right, #0062E6 , #33AEFF ); */
   }
 
   input.form-control,input.form-control:focus{

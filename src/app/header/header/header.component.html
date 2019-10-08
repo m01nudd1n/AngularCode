@@ -1,8 +1,9 @@
 <header >
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg  fixed-top" style="background: #007bff;" id="mainNav">
         <div class="container-fluid">
-          <a class="navbar-brand js-scroll-trigger" routerLink='/home'  style="color: #007bff;">Majestic</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- <a class="navbar-brand js-scroll-trigger" routerLink='/home'  style="color: #ffffff;">Majestic</a> -->
+          <a routerLink='/home'><img src="./assets/main.png" alt=""></a>
+          <button class="navbar-toggler" type="button" style="color: white" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
@@ -10,21 +11,22 @@
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                  <form class="form-inline my-2 my-lg-0">
+                  <form class="form-inline" >
                       <input class="form-control mr-sm-2"  [(ngModel)]='_listFilter' name="_listFilter" type="search" id='search' placeholder="Search" aria-label="Search">
                       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="onSearch(_listFilter)" >Search</button>
                     </form>
               </li>
               <li class="nav-item">
-                  <a *ngIf='token' class="nav-link js-scroll-trigger" routerLink='/profile'><strong>Welcome! {{userProfile.FullName}}</strong></a>
+                  <a *ngIf='token' class="nav-link js-scroll-trigger " style="color: white" routerLink='/profile'><strong>Welcome! {{fullName}}</strong></a>
 
               </li>
               <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" [routerLink]="['/cart']">Cart <span class="badge badge-dark" *ngIf='cart'>{{cart}}</span></a>
+                <a class="nav-link js-scroll-trigger mx-1" [routerLink]="['/cart']"> <span style="color:white;"> Cart </span><i class="fa fa-shopping-cart" style="color:white;"></i><span class="badge badge-dark" *ngIf='cart'>{{cart}}</span></a>
+
               </li>
               <li class="nav-item">
-                <a *ngIf='token' class="btn btn-primary my-2 my-sm-0" (click)='logOut()'style="color: white;">Logout</a>
-                <a *ngIf="token === null" routerLink='/user/login' class="btn btn-primary my-2 my-sm-0" style="color: white;" >Login</a>
+                <a *ngIf='token' class="btn btn-light my-2 my-sm-0" (click)='logOut()'style="color: #007bff;">Logout</a>
+                <a *ngIf="token === null" routerLink='/user/login' class="btn btn-light my-2 my-sm-0" style="color: #007bff;" >Login</a>
               </li>
             </ul>
           </div>
@@ -32,3 +34,4 @@
       </nav>
 
 </header>
+<br>

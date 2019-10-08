@@ -1,5 +1,6 @@
+import { OrderService } from './../../shared/order.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Cart } from './cart.model';
@@ -13,17 +14,23 @@ import { DataSharingService } from 'src/app/shared/datasharing.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private cartService: CartService, private route: ActivatedRoute, private toastr: ToastrService,private dataShare: DataSharingService) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private cartService: CartService, private route: ActivatedRoute, private toastr: ToastrService,private dataShare: DataSharingService,
+              private orderService: OrderService, private router: Router) { }
 
   cartItems: Cart[]=[];
 CartId: number;
-
+amount;
 
 
 ngOnInit() {
     this.cartService.getCart().subscribe((response: any) => {
       this.cartItems = response;
       console.log(response);
+      this.amount = this.cartItems
+      .map(item => item.Amount)
+      .reduce((prev, next) => prev + next);
+      console.log(this.amount);
     }, err => {
       console.log(err);
     });
@@ -33,7 +40,7 @@ ngOnInit() {
   }
 
 
-  getCartItems(){
+  getCartItems() {
     this.cartService.getCart().subscribe((response: any) => {
       this.cartItems = response;
       console.log(response);
@@ -61,6 +68,10 @@ ngOnInit() {
       });
 
   }
+  }
+
+  proceedToCheckout() {
+    this.router.navigateByUrl('/address');
   }
 
 

@@ -1,19 +1,22 @@
 <br><br>
 
 <div class="container-fluid">
+
     <div class="row">
         <div class="col-12 mt-3">
             <div class="card">
+                <h1 class="container">Cart</h1>
               <div class="container" *ngIf='cartItems.length==0'>
+
                 <h2 class="mx-auto d-block">No items in Cart</h2>
 
               </div>
                 <div class="card-horizontal" >
-                    <div class="card-body img-square-wrapper" *ngFor="let cartItem of cartItems">
+                    <div class="card-body img-square-wrapper" >
                       <table class="table table-borderless table-condensed">
-                        <tr>
+                        <tr *ngIf='cartItems.length > 0'>
                             <th>
-                                <h1>{{cartItems.length}}</h1>
+                              Product Image
                             </th>
                           <th>
                             Product Name
@@ -27,9 +30,9 @@
                           </th>
                           <th></th>
                         </tr>
-                        <tr>
+                        <tr *ngFor="let cartItem of cartItems">
                           <td>
-                              <img class="" src={{cartItem.ProductImage}} alt="Card image cap" style="height: 100px;">
+                              <img class="img-square-wrapped img-fluid mx-auto d-block" src={{cartItem.ProductImage}} alt="Card image cap" style="height: 100px;">
                           </td>
                           <td>
                               <h4 class="card-title mx-auto"  style="display: inline;">{{cartItem.ProductName}}</h4>
@@ -39,14 +42,14 @@
 
                           </td>
                           <td>
-                              <span class="mx-auto" style="display: inline;"><input type="number" class="" value="1"  name="quantity" min="1" max="15" [(ngModel)]="cartItem.Quantity"></span>
+                              <span class="mx-auto" style="display: inline;"><input type="number" class="" value="1"  name="cartItem.Quantity" min="1" max="15" [(ngModel)]="cartItem.Quantity"></span>
                           </td>
                           <td>
 
                           </td>
                           <td>
                               <div class="col-md-4 mx-auto" style="display: inline;">
-                                  <button class="btn btn-outline-danger" (click)="deleteFromCart(cartItem.CartId)" >Remove</button>
+                                  <button class="btn btn-outline-danger"  (click)="deleteFromCart(cartItem.CartId)" >Remove</button>
                                 </div>
                           </td>
                         </tr>
@@ -55,15 +58,23 @@
 
 
 
-
-
-                    </div>
-
                 </div>
-                <div class="card-footer">
-                    <small class="float-right">Last updated 3 mins ago</small>
-                </div>
+                <div class="card-footer" >
+                  <div class="container" >
+                      <strong class="float-left"  *ngIf='cartItems.length > 0' >Total Amount: {{amount | currency:'INR':'symbol'}}</strong>
+                      <button class="btn btn-primary float-right"  *ngIf='cartItems.length > 0' (click)="proceedToCheckout(cartItems)" >Proceed to Checkout</button>
+
+
+                  </div>
+
+
+
+        </div>
+
+
+              </div>
             </div>
         </div>
     </div>
 </div>
+<br><br>
